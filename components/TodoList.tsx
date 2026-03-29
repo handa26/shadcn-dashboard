@@ -1,11 +1,48 @@
+"use client";
+
+import { useState } from "react";
+import { CalendarIcon } from "lucide-react";
+import { format } from "date-fns";
+
+import { Button } from "./ui/button";
 import { Card } from "./ui/card";
 import { Checkbox } from "./ui/checkbox";
 import { ScrollArea } from "./ui/scroll-area";
+import {
+	Popover,
+	PopoverContent,
+	PopoverTrigger,
+} from "@/components/ui/popover";
+import { Calendar } from "@/components/ui/calendar";
 
 const TodoList = () => {
+	const [date, setDate] = useState<Date | undefined>(new Date());
+	const [open, setOpen] = useState(false);
+
 	return (
 		<div className="">
-			Calendar
+			<h1 className="text-lg font-medium mb-6">Todo List</h1>
+
+			{/* CALENDAR */}
+			<Popover open={open} onOpenChange={setOpen}>
+				<PopoverTrigger asChild>
+					<Button className="w-full">
+						<CalendarIcon />
+						{date ? format(date, "PPP") : <span>Pick a date</span>}
+					</Button>
+				</PopoverTrigger>
+				<PopoverContent align="center" className="p-0 w-auto">
+					<Calendar
+						mode="single"
+						selected={date}
+						onSelect={(date) => {
+							setDate(date);
+							setOpen(false);
+						}}
+					/>
+				</PopoverContent>
+			</Popover>
+
 			{/* LIST */}
 			<ScrollArea className="max-h-100 mt-4 overflow-y-auto">
 				<div className="flex flex-col gap-4">
@@ -19,7 +56,7 @@ const TodoList = () => {
 							</label>
 						</div>
 					</Card>
-          {/* LIST ITEM */}
+					{/* LIST ITEM */}
 					<Card className="p-4 border">
 						<div className="flex items-center gap-4">
 							<Checkbox id="item1" />
@@ -29,7 +66,7 @@ const TodoList = () => {
 							</label>
 						</div>
 					</Card>
-          {/* LIST ITEM */}
+					{/* LIST ITEM */}
 					<Card className="p-4 border">
 						<div className="flex items-center gap-4">
 							<Checkbox id="item1" />
@@ -39,7 +76,7 @@ const TodoList = () => {
 							</label>
 						</div>
 					</Card>
-          {/* LIST ITEM */}
+					{/* LIST ITEM */}
 					<Card className="p-4 border">
 						<div className="flex items-center gap-4">
 							<Checkbox id="item1" />
@@ -49,7 +86,7 @@ const TodoList = () => {
 							</label>
 						</div>
 					</Card>
-          {/* LIST ITEM */}
+					{/* LIST ITEM */}
 					<Card className="p-4 border">
 						<div className="flex items-center gap-4">
 							<Checkbox id="item1" />
@@ -59,7 +96,7 @@ const TodoList = () => {
 							</label>
 						</div>
 					</Card>
-          {/* LIST ITEM */}
+					{/* LIST ITEM */}
 					<Card className="p-4 border">
 						<div className="flex items-center gap-4">
 							<Checkbox id="item1" />
@@ -69,7 +106,7 @@ const TodoList = () => {
 							</label>
 						</div>
 					</Card>
-          {/* LIST ITEM */}
+					{/* LIST ITEM */}
 					<Card className="p-4 border">
 						<div className="flex items-center gap-4">
 							<Checkbox id="item1" />
@@ -79,7 +116,7 @@ const TodoList = () => {
 							</label>
 						</div>
 					</Card>
-          {/* LIST ITEM */}
+					{/* LIST ITEM */}
 					<Card className="p-4 border">
 						<div className="flex items-center gap-4">
 							<Checkbox id="item1" />
@@ -89,7 +126,7 @@ const TodoList = () => {
 							</label>
 						</div>
 					</Card>
-          {/* LIST ITEM */}
+					{/* LIST ITEM */}
 					<Card className="p-4 border">
 						<div className="flex items-center gap-4">
 							<Checkbox id="item1" />
@@ -99,7 +136,7 @@ const TodoList = () => {
 							</label>
 						</div>
 					</Card>
-          {/* LIST ITEM */}
+					{/* LIST ITEM */}
 					<Card className="p-4 border">
 						<div className="flex items-center gap-4">
 							<Checkbox id="item1" />
