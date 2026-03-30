@@ -1,3 +1,4 @@
+import CardList from "@/components/CardList";
 import {
 	Breadcrumb,
 	BreadcrumbItem,
@@ -26,12 +27,31 @@ const Page = () => {
 				</BreadcrumbList>
 			</Breadcrumb>
 
-      {/* CONTAINER */}
-      <div className="mt-4 flex flex-col xl:flex-row gap-8">
-        {/* LEFT */}
+			{/* CONTAINER */}
+			<div className="mt-4 flex flex-col xl:flex-row gap-8">
+				{/* LEFT */}
+				<div className="w-full xl:w-1/2 space-y-6">
+					{/* USER BADGES CONTAINER */}
+					<div className="bg-primary-foreground p-4 rounded-lg">Badge</div>
 
-        {/* RIGHT */}
-      </div>
+					{/* INFORMATION CONTAINER */}
+					<div className="bg-primary-foreground p-4 rounded-lg">Information</div>
+
+					{/* CARD LIST CONTAINER */}
+					<div className="bg-primary-foreground p-4 rounded-lg">
+						<CardList title="Recent Transactions" />
+					</div>
+				</div>
+
+				{/* RIGHT */}
+				<div className="w-full xl:w-2/3 space-y-6">
+					{/* USER CARD CONTAINER */}
+					<div className="bg-primary-foreground p-4 rounded-lg">User Card</div>
+
+					{/* CHART CONTAINER */}
+					<div className="bg-primary-foreground p-4 rounded-lg">Chart</div>
+				</div>
+			</div>
 		</div>
 	);
 };
