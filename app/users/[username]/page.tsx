@@ -1,3 +1,5 @@
+import { BadgeCheck, Candy, Citrus, Shield } from "lucide-react";
+
 import CardList from "@/components/CardList";
 import {
 	Breadcrumb,
@@ -7,6 +9,13 @@ import {
 	BreadcrumbPage,
 	BreadcrumbSeparator,
 } from "@/components/ui/breadcrumb";
+import {
+	HoverCard,
+	HoverCardContent,
+	HoverCardTrigger,
+} from "@/components/ui/hover-card";
+import { Progress } from "@/components/ui/progress";
+import { Badge } from "@/components/ui/badge";
 
 const Page = () => {
 	return (
@@ -32,10 +41,107 @@ const Page = () => {
 				{/* LEFT */}
 				<div className="w-full xl:w-1/2 space-y-6">
 					{/* USER BADGES CONTAINER */}
-					<div className="bg-primary-foreground p-4 rounded-lg">Badge</div>
+					<div className="bg-primary-foreground p-4 rounded-lg">
+						<h1 className="text-xl font-semibold">User Badges</h1>
+						<div className="flex gap-4 mt-4">
+							{/* Item 1 */}
+							<HoverCard>
+								<HoverCardTrigger>
+									<BadgeCheck
+										size={36}
+										className="rounded-full bg-blue-500/30 border border-blue-500/50 p-2"
+									/>
+								</HoverCardTrigger>
+								<HoverCardContent align="start">
+									<h1 className="font-bold">Verified User</h1>
+									<p className="text-sm text-muted-foreground">
+										This user has been verified by the admin.
+									</p>
+								</HoverCardContent>
+							</HoverCard>
+
+							{/* Item 2 */}
+							<HoverCard>
+								<HoverCardTrigger>
+									<Shield
+										size={36}
+										className="rounded-full bg-green-800/30 border border-green-800/50 p-2"
+									/>
+								</HoverCardTrigger>
+								<HoverCardContent align="start">
+									<h1 className="font-bold mb-2">Admin</h1>
+									<p className="text-sm text-muted-foreground">
+										Admin users have access to all features and can manage
+										users.
+									</p>
+								</HoverCardContent>
+							</HoverCard>
+
+							{/* Item 3 */}
+							<HoverCard>
+								<HoverCardTrigger>
+									<Candy
+										size={36}
+										className="rounded-full bg-yellow-500/30 border border-yellow-500/50 p-2"
+									/>
+								</HoverCardTrigger>
+								<HoverCardContent align="start">
+									<h1 className="font-bold mb-2">Awarded</h1>
+									<p className="text-sm text-muted-foreground">
+										This user has been awarded for their contributions.
+									</p>
+								</HoverCardContent>
+							</HoverCard>
+
+							{/* Item 4 */}
+							<HoverCard>
+								<HoverCardTrigger>
+									<Citrus
+										size={36}
+										className="rounded-full bg-orange-500/30 border border-orange-500/50 p-2"
+									/>
+								</HoverCardTrigger>
+								<HoverCardContent align="start">
+									<h1 className="font-bold mb-2">Popular</h1>
+									<p className="text-sm text-muted-foreground">
+										This user has been popular in the community.
+									</p>
+								</HoverCardContent>
+							</HoverCard>
+						</div>
+					</div>
 
 					{/* INFORMATION CONTAINER */}
-					<div className="bg-primary-foreground p-4 rounded-lg">Information</div>
+					<div className="bg-primary-foreground p-4 rounded-lg">
+						<h1 className="text-xl font-semibold">User Information</h1>
+						<div className="space-y-4 mt-4">
+							<div className="flex flex-col gap-2 mb-8">
+								<p className="text-sm text-muted-foreground">Profile completion</p>
+								<Progress value={66} />
+							</div>
+							<div className="flex items-center gap-2">
+								<span className="font-bold">Username:</span>
+								<span>john.doe</span>
+							</div>
+							<div className="flex items-center gap-2">
+								<span className="font-bold">Email:</span>
+								<span>john.doe@gmail.com</span>
+							</div>
+							<div className="flex items-center gap-2">
+								<span className="font-bold">Phone:</span>
+								<span>+62 831 41591960</span>
+							</div>
+							<div className="flex items-center gap-2">
+								<span className="font-bold">Location:</span>
+								<span>Banjarbaru, South Borneo</span>
+							</div>
+							<div className="flex items-center gap-2">
+								<span className="font-bold">Role:</span>
+								<Badge>Admin</Badge>
+							</div>
+						</div>
+						<p className="text-sm text-muted-foreground mt-4">Joined on 2026.03.31</p>
+					</div>
 
 					{/* CARD LIST CONTAINER */}
 					<div className="bg-primary-foreground p-4 rounded-lg">
