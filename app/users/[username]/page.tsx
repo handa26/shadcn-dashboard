@@ -16,11 +16,10 @@ import {
 } from "@/components/ui/hover-card";
 import { Progress } from "@/components/ui/progress";
 import { Badge } from "@/components/ui/badge";
-import {
-	Sheet,
-	SheetTrigger,
-} from "@/components/ui/sheet";
+import { Sheet, SheetTrigger } from "@/components/ui/sheet";
 import { Button } from "@/components/ui/button";
+import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/avatar";
+
 import EditUser from "@/components/EditUser";
 
 const Page = () => {
@@ -171,7 +170,23 @@ const Page = () => {
 				{/* RIGHT */}
 				<div className="w-full xl:w-2/3 space-y-6">
 					{/* USER CARD CONTAINER */}
-					<div className="bg-primary-foreground p-4 rounded-lg">User Card</div>
+					<div className="bg-primary-foreground p-4 rounded-lg space-y-2">
+						<div className="flex items-center gap-2">
+							<Avatar className="size-12">
+								<AvatarImage src="https://github.com/shadcn.png" />
+								<AvatarFallback>JD</AvatarFallback>
+							</Avatar>
+							<h1 className="text-xl font-semibold">John Doe</h1>
+						</div>
+						<p className="text-sm text-muted-foreground">
+							Lorem ipsum dolor sit amet consectetur adipisicing elit. Explicabo
+							repellendus vel laudantium ducimus facilis porro, culpa tempore
+							exercitationem assumenda sint molestiae, sit fugiat voluptate aut
+							veniam. Perferendis beatae cumque hic, eveniet laborum fugit
+							aliquid? Repellat iure fugiat quas inventore harum at ad ipsam
+							sint similique.
+						</p>
+					</div>
 
 					{/* CHART CONTAINER */}
 					<div className="bg-primary-foreground p-4 rounded-lg">Chart</div>
